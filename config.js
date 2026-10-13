@@ -29,7 +29,7 @@ window.IYKESON_CONFIG = {
   MAPS_LINK: "",
 
   // Logo image link (Cloudinary).
-  LOGO: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791931177/I_20250726_234203_0000-removebg-preview.png",
+  LOGO: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791933470/IYKESON_LOGO_WITH_WHITE_BG.png",
 
   CURRENCY: "₦",
   TV_SECONDS_PER_SLIDE: 8
