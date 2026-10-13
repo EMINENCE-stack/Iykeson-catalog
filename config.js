@@ -21,7 +21,7 @@ window.IYKESON_CONFIG = {
   HERO_TITLE: "Everything Your Building Needs, All in One Place.",
 
   // Hero background photo. Leave "" for the plain dark hero.
-  HERO_IMAGE: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791930848/black_bathroom.jpg",
+  HERO_IMAGE: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791934279/KITCHEN_DESIGN_FOR_CATALOG.jpg",
 
   // Photo of your shop front (Cloudinary link)
   SHOP_IMAGE: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791930887/shop_pics.jpg",
