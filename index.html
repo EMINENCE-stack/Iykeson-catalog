@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iykeson Bathroom Affairs &amp; Tiles Depot | Tiles, Doors, WCs &amp; Fittings in Ilorin</title>
+<meta name="description" content="Browse tiles, doors, WCs, bathroom accessories and plumbing fittings. Send us a WhatsApp message to order.">
+<meta name="theme-color" content="#0e0e10">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="eyebrow">Ilorin · Kwara State</div>
+    <h1 id="hero-title">Build the bathroom you've imagined</h1>
+    <p id="hero-tagline"></p>
+    <div class="actions">
+      <a class="btn btn-red" href="#products">Browse products</a>
+      <a class="btn btn-ghost" id="hero-wa" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap"><ul>
+  <li>Quality tiles &amp; fittings</li><li>See it in our showroom</li><li>Order by WhatsApp</li><li>Expert advice on site</li>
+</ul></div></div>
+
+<section class="block" id="categories"><div class="wrap">
+  <div class="sec-head"><h2>Shop by category</h2><p>Tap a category to see what we have</p></div>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<section class="block" id="products" style="background:var(--mist)"><div class="wrap">
+  <div class="sec-head"><h2>Our products</h2></div>
+  <div class="toolbar">
+    <label class="search"><span class="visually-hidden">Search</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search by name, code, colour, size…" autocomplete="off"></label>
+    <select id="sort" aria-label="Sort"><option value="new">Sheet order</option><option value="az">Name A–Z</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+</div></section>
+
+<section class="block dark-block" id="contact"><div class="wrap two">
+  <div><h2 style="font-size:2.4rem;margin-bottom:14px">Visit our showroom</h2>
+    <p>See the tiles, doors and fittings in person. Our team will help you choose and work out quantities.</p></div>
+  <ul id="contact-list"></ul>
+</div></section>
+
+<div id="site-footer"></div>
+<script src="config.js"></script><script src="common.js"></script><script src="layout.js"></script><script src="cards.js"></script><script src="home.js"></script>
+</body></html>
