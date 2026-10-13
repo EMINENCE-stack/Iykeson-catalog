@@ -6,11 +6,7 @@
   document.getElementById("hero-title").textContent = CFG.HERO_TITLE || document.getElementById("hero-title").textContent;
   document.getElementById("hero-tagline").textContent = CFG.TAGLINE;
   $("hero-wa").href = generalWhatsApp();
-  if (CFG.HERO_IMAGE) {
-    const h = $("hero");
-    h.style.backgroundImage = `url("${img(CFG.HERO_IMAGE, 2000)}")`;
-    h.style.backgroundPosition = CFG.HERO_POSITION || "center 40%";   // which part of the photo stays visible
-  }
+  if (CFG.HERO_IMAGE) $("hero").style.backgroundImage = `url("${img(CFG.HERO_IMAGE, 1600)}")`;
   if (CFG.SHOP_IMAGE) $("shop-photo").innerHTML = `<figure class="shop-photo"><img loading="lazy" src="${esc(img(CFG.SHOP_IMAGE, 900))}" alt="Our shop front"><figcaption>Look out for this building</figcaption></figure>`;
   $("contact-list").innerHTML =
     `<li><strong>Address</strong><br>${esc(CFG.ADDRESS)}</li>` +
