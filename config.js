@@ -19,6 +19,7 @@ window.IYKESON_CONFIG = {
 
   // Big headline on the home page
   HERO_TITLE: "Everything Your Building Needs, All in One Place.",
+     HERO_POSITION: "center 40%",
 
   // Hero background photo. Leave "" for the plain dark hero.
   HERO_IMAGE: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791934279/KITCHEN_DESIGN_FOR_CATALOG.jpg",
