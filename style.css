@@ -200,3 +200,25 @@ body.tv{background:#000;color:#fff;overflow:hidden;height:100vh;cursor:none}
 .tv .progress{position:absolute;left:0;bottom:0;height:.6vw;background:var(--red);width:0;z-index:6}
 .tv .hint{position:absolute;right:1vw;bottom:1vw;z-index:7;font-size:.9vw;color:#888}
 @media(max-width:900px){.tv .slide{grid-template-columns:1fr;grid-template-rows:1.2fr 1fr}.tv .text h2{font-size:9vw}.tv .text .meta,.tv .text .cta-line,.tv .text .kicker{font-size:3.4vw}.tv .text .price{font-size:10vw}.tv .brandbar{font-size:4vw}.tv .brandbar img{height:7vw}}
+
+.shop-photo{margin-top:22px;max-width:380px;border-radius:var(--radius);overflow:hidden;border:2px solid var(--line)}
+.shop-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.shop-photo figcaption{padding:8px 12px;font-size:.85rem;color:#bbb;background:var(--ink2)}
+
+/* ===== TV remote friendly focus + staff launcher + TV menu button ===== */
+.store a:focus-visible,.store button:focus-visible,.store input:focus-visible,.screen a:focus-visible{outline:5px solid #fff;outline-offset:4px}
+.chip.toggle{border-style:dashed}.chip.toggle.on{border-style:solid}
+#tvmenu{position:fixed;top:14px;right:14px;z-index:30;background:var(--red);color:#fff;font-weight:700;padding:12px 20px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .25s;font-size:clamp(14px,1.6vw,26px)}
+#tvmenu.show{opacity:1;pointer-events:auto;cursor:pointer}
+body.screen{background:var(--ink);color:#fff;min-height:100vh;display:grid;place-items:center;padding:24px}
+.screen main{width:min(980px,100%);text-align:center}
+.screen h1{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:8px}
+.screen .sub{color:#bbb;margin-bottom:30px;font-size:1.15rem}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:640px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;min-height:210px;padding:24px;border-radius:16px;background:var(--ink2);border:3px solid var(--line)}
+.choice b{font-family:var(--head);font-size:2.4rem;text-transform:uppercase;letter-spacing:.03em}
+.choice span{color:#bbb;font-size:1.1rem}
+.choice:hover,.choice:focus{border-color:var(--red);background:#241012}
+.choice.small{grid-column:1/-1;min-height:0;padding:16px;font-weight:700}
+#auto{margin-top:26px;color:#ff8a8a;font-size:1.2rem;min-height:1.6em}
