@@ -2,7 +2,7 @@
 (function () {
   // keeps the longer name tidy on small phones
   const st = document.createElement("style");
-  st.textContent = ".brand small{text-transform:uppercase;white-space:nowrap}@media(max-width:480px){.brand{font-size:1.15rem}.brand small{font-size:.5rem;letter-spacing:.07em}}";
+  st.textContent = "footer{padding-bottom:92px}.brand small{text-transform:uppercase;white-space:nowrap}@media(max-width:480px){.brand{font-size:1.15rem}.brand small{font-size:.5rem;letter-spacing:.07em}}";
   document.head.appendChild(st);
   const { CFG, esc, generalWhatsApp, WA_ICON } = window.Iyk;
   const logo = CFG.LOGO
@@ -27,7 +27,7 @@
   if (footer) footer.innerHTML = `
   <footer><div class="wrap">
     <div>&copy; ${new Date().getFullYear()} ${esc(CFG.BUSINESS_NAME)}</div>
-    <div><a href="store.html">In-store display</a> &nbsp;·&nbsp; <a href="tv.html">TV mode</a></div>
+    <div><a href="screen.html?choose=1">Shop screens (staff)</a></div>
   </div></footer>
   <a class="float-wa" href="${generalWhatsApp()}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">${WA_ICON}</a>`;
 })();
