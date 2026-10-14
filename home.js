@@ -1,14 +1,27 @@
 (function () {
   const { CFG, esc, img, loadProducts, categories, generalWhatsApp, cardHTML, searchText } = window.Iyk;
   const $ = id => document.getElementById(id);
+  const setText = (id, t) => { const e = $(id); if (e && t) e.textContent = t; };
   let all = [], cat = "All";
-  
-  document.getElementById("hero-title").textContent = CFG.HERO_TITLE || document.getElementById("hero-title").textContent;
-  document.getElementById("hero-tagline").textContent = CFG.TAGLINE;
-  $("hero-wa").href = generalWhatsApp();
-  if (CFG.HERO_IMAGE) $("hero").style.backgroundImage = `url("${img(CFG.HERO_IMAGE, 1600)}")`;
-  if (CFG.SHOP_IMAGE) $("shop-photo").innerHTML = `<figure class="shop-photo"><img loading="lazy" src="${esc(img(CFG.SHOP_IMAGE, 900))}" alt="Our shop front"><figcaption>Look out for this building</figcaption></figure>`;
-  $("contact-list").innerHTML =
+
+  setText("hero-title", CFG.HERO_TITLE);
+  setText("hero-tagline", CFG.TAGLINE);
+  if ($("hero-wa")) $("hero-wa").href = generalWhatsApp();
+  if (CFG.HERO_IMAGE && $("hero")) {
+    $("hero").style.backgroundImage = `url("${img(CFG.HERO_IMAGE, 2000)}")`;
+    $("hero").style.backgroundPosition = CFG.HERO_POSITION || "center 40%";   // which part of the photo stays visible
+  }
+  // Shop photo: works even if index.html has no #shop-photo box (it creates one)
+  if (CFG.SHOP_IMAGE && $("contact")) {
+    let box = $("shop-photo");
+    if (!box) {
+      box = document.createElement("div"); box.id = "shop-photo";
+      const left = $("contact").querySelector(".two > div") || $("contact");
+      left.appendChild(box);
+    }
+    box.innerHTML = `<figure class="shop-photo"><img loading="lazy" src="${esc(img(CFG.SHOP_IMAGE, 900))}" alt="Our shop front"><figcaption>Look out for this building</figcaption></figure>`;
+  }
+  if ($("contact-list")) $("contact-list").innerHTML =
     `<li><strong>Address</strong><br>${esc(CFG.ADDRESS)}</li>` +
     `<li><strong>Opening hours</strong><br>${esc(CFG.OPENING_HOURS)}</li>` +
     (CFG.PHONE_DISPLAY ? `<li><strong>Phone</strong><br>${esc(CFG.PHONE_DISPLAY)}</li>` : "") +
