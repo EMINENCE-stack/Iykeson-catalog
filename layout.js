@@ -1,5 +1,9 @@
 /* Header, footer and floating WhatsApp button, shared by all public pages */
 (function () {
+  // keeps the longer name tidy on small phones
+  const st = document.createElement("style");
+  st.textContent = ".brand small{text-transform:uppercase;white-space:nowrap}@media(max-width:480px){.brand{font-size:1.15rem}.brand small{font-size:.5rem;letter-spacing:.07em}}";
+  document.head.appendChild(st);
   const { CFG, esc, generalWhatsApp, WA_ICON } = window.Iyk;
   const logo = CFG.LOGO
     ? `<img src="${esc(CFG.LOGO)}" alt="${esc(CFG.BUSINESS_NAME)}">`
@@ -7,7 +11,7 @@
   const header = document.getElementById("site-header");
   if (header) header.innerHTML = `
   <header class="site-header"><div class="wrap bar">
-    <a class="brand" href="index.html">${logo}<span>${esc(CFG.SHORT_NAME)}<small>BATHROOM &amp; TILES DEPOT</small></span></a>
+    <a class="brand" href="index.html">${logo}<span>${esc(CFG.SHORT_NAME)}<small>${esc(CFG.HEADER_SUBTITLE || "Bathroom Affairs & Tiles Depot")}</small></span></a>
     <button class="menu-btn" id="menu-btn" aria-expanded="false">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="index.html#categories">Categories</a>
