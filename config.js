@@ -11,11 +11,11 @@ window.IYKESON_CONFIG = {
   SHEET_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTFGWejwz4OEg4UXCcf6OI5e_7FMmSmaMDlS6X3GnDe0aRzvzvuE9JaBJgJzQjWRUhWanP6nNtUqgSJ/pub?gid=0&single=true&output=csv",
 
   // WhatsApp number
-  WHATSAPP: "2349068459910",
+  WHATSAPP: "2348141663494",
 
   // Shown in the footer / contact section
   ADDRESS: "Opposite Sammy Car Park, Arakala, Akure, Ondo State",
-  PHONE_DISPLAY: "09068459910",
+  PHONE_DISPLAY: "08141663494",
   OPENING_HOURS: "Mon - Sat: 8:00am - 6:00pm",
 
   // Big headline on the home page
