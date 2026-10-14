@@ -20,10 +20,10 @@ window.IYKESON_CONFIG = {
   // Big headline on the home page
   HERO_TITLE: "Everything Your Building Needs, All in One Place.",
 
-  // Hero background photo. Leave "" for the plain dark hero.
+  // Hero background photo.
   HERO_IMAGE: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791934279/KITCHEN_DESIGN_FOR_CATALOG.jpg",
 
-  // Photo of your shop front (Cloudinary link)
+  // Photo of shop front (Cloudinary link)
   SHOP_IMAGE: "https://res.cloudinary.com/c4z9mxuq/image/upload/v1791930887/shop_pics.jpg",
   // Google Maps link to shop
   MAPS_LINK: "",
