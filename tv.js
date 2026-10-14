@@ -28,9 +28,9 @@
     return `<div class="slide" data-has-video="${useVideo ? 1 : 0}">
       <div class="media">${media}</div>
       <div class="text"><div class="kicker">${esc(p.category)}</div><h2>${esc(p.name)}</h2>
-        <div class="meta">Code: ${esc(p.code)}${p.specs.slice(0, 3).map(s => ` · ${esc(s[1])}`).join("")}</div>
+        <div class="meta">Product No. ${esc(p.code)}${p.specs.slice(0, 3).map(s => ` · ${esc(s[1])}`).join("")}</div>
         <div class="price ${p.price ? "" : "ask"}">${p.price ? esc(money(p.price)) : "Ask in store for price"}</div>
-        <div class="cta-line">Ask our team, or WhatsApp us the code <b>${esc(p.code)}</b></div></div></div>`;
+        <div class="cta-line">Ask our team, or WhatsApp us the product number <b>${esc(p.code)}</b></div></div></div>`;
   }
 
   function next(step) {
@@ -47,6 +47,7 @@
     const v = slide.querySelector(".main-vid");
     if (v) {
       const go = () => { clearTimeout(timer); next(1); };
+      v.addEventListener("error", go, { once: true });
       v.play().then(() => {
         v.addEventListener("ended", go, { once: true });
         ms = Math.min(25000, Math.max(ms, ((v.duration || 0) * 1000) || ms));
@@ -68,11 +69,19 @@
 
   setInterval(() => loadProducts(setList).catch(() => {}), 10 * 60 * 1000);
 
+  // Menu button: appears for a few seconds when someone touches the remote or mouse
+  const menu = document.createElement("a"); menu.id = "tvmenu"; menu.href = "screen.html?choose=1"; menu.textContent = "☰ Menu";
+  document.body.appendChild(menu);
+  let mt; const showMenu = () => { menu.classList.add("show"); clearTimeout(mt); mt = setTimeout(() => menu.classList.remove("show"), 6000); };
+  ["keydown", "mousemove", "touchstart"].forEach(ev => document.addEventListener(ev, showMenu, { passive: true }));
+  // Fresh start every 3 hours keeps a TV browser running smoothly all day (data is still cached, so no gap)
+  setTimeout(() => location.reload(), 3 * 60 * 60 * 1000);
+
   document.addEventListener("keydown", e => {
     if (e.key === "ArrowRight") next(1); else if (e.key === "ArrowLeft") next(-1);
     else if (e.key.toLowerCase() === "f") toggleFS();
   });
-  document.addEventListener("click", toggleFS);
+  document.addEventListener("click", e => { if (!e.target.closest("#tvmenu")) toggleFS(); });
   function toggleFS() { if (!document.fullscreenElement) document.documentElement.requestFullscreen && document.documentElement.requestFullscreen().catch(() => {}); }
   // Keep the screen awake where supported
   try { navigator.wakeLock && navigator.wakeLock.request("screen").catch(() => {}); } catch (e) {}
