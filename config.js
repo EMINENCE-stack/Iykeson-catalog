@@ -4,6 +4,7 @@
 window.IYKESON_CONFIG = {
   BUSINESS_NAME: "Iykeson Bathroom Affairs & Tiles Depot",
   SHORT_NAME: "Iykeson",
+     HEADER_SUBTITLE: "Bathroom Affairs & Tiles Depot",
   TAGLINE: "Where Quality Meets Beautiful Living.",
 
   // published Google Sheet
