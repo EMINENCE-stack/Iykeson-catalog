@@ -2,7 +2,7 @@
   const { CFG, esc, img, loadProducts, categories, generalWhatsApp, cardHTML, searchText } = window.Iyk;
   const $ = id => document.getElementById(id);
   let all = [], cat = "All";
-
+  
   document.getElementById("hero-title").textContent = CFG.HERO_TITLE || document.getElementById("hero-title").textContent;
   document.getElementById("hero-tagline").textContent = CFG.TAGLINE;
   $("hero-wa").href = generalWhatsApp();
