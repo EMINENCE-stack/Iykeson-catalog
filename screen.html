@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop Screens | Iykeson</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="screen">
+<main>
+  <h1 id="name">Shop screens</h1>
+  <p class="sub">Choose what this screen should show</p>
+  <div class="choices">
+    <a class="choice" id="c-tv" href="tv.html" data-mode="tv"><b>Slideshow</b><span>Plays all day. For the shop TV.</span></a>
+    <a class="choice" id="c-store" href="store.html" data-mode="store"><b>In-stock search</b><span>Customers browse what is available.</span></a>
+    <a class="choice small" href="index.html">Go to the main website</a>
+  </div>
+  <p id="auto"></p>
+</main>
+<script src="config.js"></script>
+<script>
+(function () {
+  var KEY = "iykeson_screen_mode", C = window.IYKESON_CONFIG || {};
+  document.getElementById("name").textContent = (C.SHORT_NAME || "Shop") + " screens";
+  var choose = new URLSearchParams(location.search).get("choose");
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  var links = [].slice.call(document.querySelectorAll(".choice"));
+  links.forEach(function (a) {
+    a.addEventListener("click", function () { var m = a.getAttribute("data-mode"); if (m) try { localStorage.setItem(KEY, m); } catch (e) {} });
+  });
+  var first = (saved === "store" ? document.getElementById("c-store") : document.getElementById("c-tv"));
+  first.focus();
+  // Arrow keys on a TV remote move between the buttons
+  document.addEventListener("keydown", function (e) {
+    var i = links.indexOf(document.activeElement);
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") { links[(i + 1) % links.length].focus(); e.preventDefault(); }
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") { links[(i - 1 + links.length) % links.length].focus(); e.preventDefault(); }
+  });
+  // After a power cut or restart, carry on with the last screen automatically
+  if (!choose && (saved === "tv" || saved === "store")) {
+    var n = 8, target = saved === "tv" ? "tv.html" : "store.html", label = saved === "tv" ? "the slideshow" : "in-stock search", box = document.getElementById("auto");
+    var t = setInterval(function () {
+      n--; if (n <= 0) { clearInterval(t); location.href = target; return; }
+      box.textContent = "Starting " + label + " in " + n + "… press any button to choose";
+    }, 1000);
+    box.textContent = "Starting " + label + " in " + n + "… press any button to choose";
+    ["keydown", "click", "touchstart", "mousemove"].forEach(function (ev) {
+      document.addEventListener(ev, function () { clearInterval(t); box.textContent = ""; }, { once: true });
+    });
+  }
+})();
+</script>
+</body></html>
